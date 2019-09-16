@@ -1,10 +1,13 @@
 import React, { Component } from 'react'
 import Instructions from './Instructions'
 import Contact from './Contact'
+import Counter from './Counter'
 
 class App extends Component {
   constructor(props) {
     super(props)
+    const complete = props.complete;
+
     this.state = {
       contacts: [
         {id: 1, name: "Angad", nickname: "greg", hobby: "dirty-ing"},
@@ -16,8 +19,13 @@ class App extends Component {
 
   render() {
     return (
+
       <div className="App">
-        <Instructions />
+
+        <Instructions complete={true}/>
+        <Counter/>
+
+
 
         {this.state.contacts.map(x => (
           <Contact id={x.id} name={x.name} nickcname={x.nickname} hobby={x.hobby} />
